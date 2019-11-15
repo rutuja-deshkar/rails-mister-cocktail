@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>
+    <u><%= @cocktail.name%></u>
+  </h1>
+
+  <div>
+    <% if @cocktail.doses.empty? %>
+      <p class="text-gray">
+        No ingredients yet. Add yours!
+      </p>
+    <% else %>
+      <h3> Ingredients: </h2>
+    <% end %>
+  </div>
+
+
+  <ul class="list-group">
+    <% @cocktail.doses.each do |dose| %>
+      <li class="list-group-item">
+        <strong> <%= dose.ingredient.name %> </strong>
+        <p><%= dose.description %></p>
+        <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="fa fa-trash destroy_dose"></i>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="col-sm-12 col-md-6">
+    <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
+  </div>
+
+  <div class="container mt-3">
+    <%= link_to "Back to cocktails", cocktails_path, class: "btn btn-warning" %>
+  </div>
+
+</div>

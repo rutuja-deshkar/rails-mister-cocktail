@@ -1,0 +1,7 @@
+<h3 class="mt-3">Add your ingredients</h3>
+<%= simple_form_for [cocktail, dose] do |f| %>
+  <%= f.association :ingredient, collection: Ingredient.order(:name),  prompt: "Pick one from list" %>
+  <%= f.input :description %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+
