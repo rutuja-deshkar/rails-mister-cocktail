@@ -19,7 +19,9 @@ gem 'webpacker'
 # gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
+gem 'carrierwave', '~> 1.2'
 gem 'coffee-rails', '~> 4.2'
+gem 'cloudinary', '~> 1.9.1'
 gem 'dotenv-rails', groups: [:development, :test]
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

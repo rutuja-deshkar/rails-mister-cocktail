@@ -1,20 +1,29 @@
+<div class="banner">
+  <div class="container">
+    <div class="banner-content">
+      <%= link_to "Create your own cocktail", new_cocktail_path, class: "btn btn-danger"%>
+    </div>
+    <h1 class="text-center">Fancy Cocktails</h1>
+  </div>
+</div>
 <div class="container">
-  <h1 class="text-center">Fancy Cocktails</h1>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card mx-3 my-3">
+        <div class="card mx-3 my-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo, height: 600, width: 400, crop: :fill %>')">
           <div class="card-description">
-            <h2><%= link_to cocktail.name, cocktail_path(cocktail), class: "card-link text-center" %></h2>
+            <h2><%= cocktail.name %></h2>
           </div>
+          <%= link_to "", cocktail_path(cocktail), class: "card-link" %>
+          <%#= link_to cocktail_path(cocktail) do %>
+          <!--  <div class="linkable">
+          </div> -->
+          <%# end %>
         </div>
       </div>
     <% end %>
   </div>
-  <div class="list-tasks" >
-    <i class="fas fa-plus"></i>
-    <%= link_to "Add a new cocktail", new_cocktail_path %>
 </div>
-</div>
+
 
 
